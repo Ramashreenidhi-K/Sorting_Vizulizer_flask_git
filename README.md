@@ -1,4 +1,5 @@
 Sorting vizulizer
+
 Flask Sorting, Searching, and N-Queens Visualization
 
 Description
