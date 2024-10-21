@@ -1,0 +1,345 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+/* Navigation */
+
+.controls {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center align items */
+    margin-bottom: 20px; /* Spacing below the controls */
+}
+
+.controls input,
+.controls button,
+.controls select {
+    margin: 0 5px; /* Add horizontal spacing between controls */
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #4A90E2;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #357ABD;
+}
+
+/* Array Visualization */
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px 0;
+    height: 300px; /* Fixed height for better alignment */
+}
+
+.bar {
+    width: 30px;
+    margin: 0 2px;
+    background-color: #4A90E2;
+    border-radius: 5px;
+    position: relative;
+    transition: height 0.2s, background-color 0.2s;
+}
+
+.bar.current {
+    background-color: #E94E77;
+}
+
+.bar.sorted {
+    background-color: #A5D76D;
+}
+
+.value {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    color:black;
+    font-weight: bold;
+}
+
+/* Stack Visualization */
+#stack-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.stack-item {
+    width: 100px;
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.stack-item:hover {
+    background-color: #E94E77;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #4A90E2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px; /* Increased font size for better visibility */
+    margin: 5px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+/* Input Fields */
+input[type="number"], input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+input[type="number"]:focus, input[type="text"]:focus {
+    border-color: #4A90E2;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    #array-container {
+        flex-direction: column;
+        height: auto; /* Allow height to adjust */
+    }
+
+    .bar {
+        width: 80%;
+        margin: 2px auto;
+    }
+
+    .stack-item {
+        width: 90%;
+    }
+
+    .controls {
+        flex-direction: column; /* Stack controls vertically on small screens */
+        align-items: center;
+    }
+
+    .controls button,
+    .controls select,
+    .controls input[type="number"] {
+        width: 90%; /* Full width for inputs and buttons on small screens */
+        margin-bottom: 10px;
+    }
+}
+
+
+
+/* Stack Visualization */
+/* Stack Visualization */
+#stack-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#cylinder {
+    width: 120px;
+    height: 300px;
+    background-color: #e0e0e0;
+    border-radius: 60px;
+    border: 2px solid #4A90E2;
+    position: relative;
+    overflow: hidden;
+}
+
+#stack-elements {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stack-item {
+    width: 80px;
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.stack-item:hover {
+    background-color: #E94E77;
+}
+
+/* Buttons and Input Fields styles */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #4A90E2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100px;
+}
+
+
+
+/* Queue Visualization */
+#queue-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#queue-cylinder {
+    width: 120px;
+    height: 300px; /* Adjust as needed */
+    background-color: #e0e0e0;
+    border-radius: 60px;
+    border: 2px solid #4A90E2;
+    position: relative;
+    overflow: hidden;
+}
+
+#queue-elements {
+    position: absolute;
+    bottom: 0; /* Items will stack from the bottom */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.queue-item {
+    width: 80px;
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.queue-item:hover {
+    background-color: #E94E77; /* Change on hover */
+}
+
+
+/* Binary Search Visualization */
+#binary-array-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px 0;
+    height: 100px; /* Fixed height for visual effect */
+}
+
+/* Bubble Styles */
+.binary-item {
+    width: 60px; /* Width of each bubble */
+    height: 60px; /* Height of each bubble */
+    background-color: #4A90E2; /* Default bubble color */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    border-radius: 50%; /* Make it circular */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Highlighting the Current Item */
+.highlight {
+    background-color: #E94E77; /* Highlight color */
+    transform: scale(1.1); /* Slightly enlarge the highlighted item */
+    box-shadow: 0 0 15px rgba(233, 78, 119, 0.5); /* Extra glow effect */
+}
+
+/* Step Container */
+.step {
+    display: flex;
+    margin: 5px 0;
+}
+
+/* Input Fields */
+.array-input {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 20px 0;   
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #4A90E2;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .binary-item {
+        width: 40px; /* Smaller items on mobile */
+        height: 40px; /* Smaller items on mobile */
+    }
+}

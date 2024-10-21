@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Visualization</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content */
+        }
+
+        h1 {
+            text-align: center;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4A90E2;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #357ABD;
+        }
+
+        /* Linear Search Visualization */
+        #linear-array-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            margin: 20px 0;
+            height: 100px; /* Fixed height for visual effect */
+            padding: 10px;
+        }
+
+        /* Item Styles */
+        .linear-item {
+            width: 60px; /* Width of each item */
+            height: 60px; /* Height of each item */
+            background-color: #4A90E2; /* Default item color */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            border-radius: 50%; /* Make it circular */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        /* Highlighting the Current Item */
+        .highlight {
+            background-color: #E94E77; /* Highlight color */
+            transform: scale(1.1); /* Slightly enlarge the highlighted item */
+            box-shadow: 0 0 15px rgba(233, 78, 119, 0.5); /* Extra glow effect */
+        }
+
+        /* Found Item Style */
+        .found {
+            background-color: #A5D76D; /* Color for found item */
+        }
+
+        /* Input Fields */
+        input[type="text"],
+        input[type="number"] {
+            padding: 10px; /* Add padding for better text visibility */
+            border: 1px solid #ccc; /* Border style */
+            border-radius: 5px; /* Rounded edges */
+            margin: 0 10px; /* Margin on left and right for spacing */
+            width: 200px; /* Set a fixed width for consistency */
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;   
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #4A90E2;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px; /* Space between buttons */
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        /* Result Display */
+        #result {
+            text-align: center; /* Center the result text */
+            margin-top: 20px; /* Spacing above the result */
+            font-size: 18px; /* Increased font size for better visibility */
+            color: #4A90E2; /* Color for the result text */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .linear-item {
+                width: 40px; /* Smaller items on mobile */
+                height: 40px; /* Smaller items on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about_us') }}" class="active">About Us</a>
+    </nav>
+
+    <h1>Linear Search Visualization</h1>
+    <div class="controls" id="linear-input">
+        <input type="text" id="array-input" placeholder="Enter numbers (comma-separated)">
+        <input type="number" id="target-input" placeholder="Enter target number">
+        <button id="search-btn">Search</button>
+    </div>
+
+    <div id="linear-array-container"></div>
+    <div id="result"></div>
+
+    <script src="{{ url_for('static', filename='linear_search.js') }}"></script>
+</body>
+</html>

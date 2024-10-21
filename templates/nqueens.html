@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-Queens Visualization</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;                  
+            flex-direction: column;         
+            align-items: center;            
+            justify-content: center;        
+            height: 100vh;                  
+        }
+
+        h1 {
+            text-align: center;
+            color: #4A90E2;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #4A90E2;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #357ABD;
+        }
+
+        /* Chessboard Styles */
+        #chessboard {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            margin: 20px 0; /* Spacing around the chessboard */
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+        }
+
+        .black { background-color: #8B4513; }
+        .white { background-color: #fff; }
+        .queen { font-size: 40px; color: red; }
+
+        /* Input Fields */
+        .controls {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;     
+            margin: 20px 0;   
+        }
+
+        /* Buttons */
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: #4A90E2;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 5px; /* Space between buttons */
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            #chessboard {
+                grid-template-columns: repeat(4, 30px); /* Adjust for smaller screens */
+                grid-template-rows: repeat(4, 30px);
+            }
+            .cell {
+                width: 30px;
+                height: 30px;
+            }
+            .queen {
+                font-size: 24px; /* Smaller queen symbol */
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('about_us') }}" class="active">About Us</a>
+    </nav>
+    
+    <h1>N-Queens Visualization</h1>
+
+    <div class="controls">
+        <label for="boardSize">Board Size:</label>
+        <input type="number" id="boardSize" value="4" min="4" max="15">
+        <button onclick="startVisualization()">Solve N-Queens</button>
+        <button onclick="resetBoard()">Reset</button>
+    </div>
+    
+    <div id="chessboard"></div>
+    <p id="message" style="text-align: center;"></p>
+
+    <script src="{{ url_for('static', filename='nqueens.js') }}"></script>
+</body>
+</html>
